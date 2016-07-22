@@ -1,0 +1,94 @@
+<!doctype html>
+<html ng-app="todoApp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>My to do list</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body ng-controller="EditableFormCtrl">
+    <div class="layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <main class=" mdl-color--grey-100">
+        <div class="mdl-grid content">
+          <div class="cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__supporting-text">
+                <h3>My to do list</h3>
+                <ul>
+                  <li ng-repeat="task in tasks | filter: filterList">
+                    <form editable-form name="editableForm">
+                      <!-- <span class="title">Task: </span> -->
+                      <span class="tasktext" editable-text="task.description" e-name="name" e-required>
+                        {{ task.description || 'Edit to enter a task' }}
+                      </span>
+                      <span class="actions">
+                        <i ng-click="editableForm.$show()" ng-show="!editableForm.$visible" class="material-icons">create</i>
+                        <i class="material-icons" ng-click="deleteTask($event, $index)">delete</i>
+                      </span>
+                      <div>
+                        <!-- editable status (select-local) -->
+                        <!-- <span class="title">Status: </span> -->
+                        <span class="tag label label-info mytag" editable-select="task.status" e-name="status" e-ng-options="s.value as s.text for s in statuses">
+                          {{ (statuses | filter:{value: task.status})[0].text || 'Not set' }}
+                        </span>
+                      </div>  
+                        <!-- buttons to submit / cancel form -->
+                        <div class="ebuttons" ng-show="editableForm.$visible">
+                          <button type="submit" class="btn btn-default" ng-disabled="editableForm.$waiting">
+                            Save
+                          </button>
+                          <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                            Cancel
+                          </button>
+                        </div>
+                    </form>
+                  </li>
+                </ul>
+                <div class="mdl-card__actions mdl-card--border">
+                  <i ng-click="addTask()" class="material-icons">add</i>
+                </div>
+               	<ul class="list-inline">
+                	<li>
+                		<button ng-click="filterList = {}" type="button" class="btn btn-default">All</button>
+                	</li>
+                	<li>
+                		<button ng-click="filterList = {status: 2}" type="button" class="btn btn-default">Complete</button>
+                	</li>
+                	<li>
+                		<button type="button" ng-click="filterList = {status: 1}" class="btn btn-default">Incomplete</button>
+                	</li>
+                </ul>
+                <span class="result"> 
+                	{{(tasks | filter:{status: 2}).length}} task complete of {{ tasks.length}}
+								</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+  	</div>
+  
+
+    <!-- Angular requires Angular.js Libraries -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <!-- Angular Material Library -->
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <!-- Main Module -->
+    <script src="js/app.js"></script>
+    
+    <!-- Main Controller -->
+    <script src="js/controllers/MainController.js"></script>
+
+  </body>
+</html>

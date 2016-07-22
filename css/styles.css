@@ -1,0 +1,216 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+.layout .header .mdl-textfield {
+  padding: 0px;
+  margin-top: 41px;
+}
+.layout .header .mdl-textfield .mdl-textfield__expandable-holder {
+  bottom: 19px;
+}
+.layout .mdl-layout__header .mdl-layout__drawer-button {
+  color: rgba(0, 0, 0, 0.54);
+}
+.drawer {
+  border: none;
+}
+/* iOS Safari specific workaround */
+.drawer .mdl-menu__container {
+  z-index: -1;
+}
+.drawer .navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */
+.drawer .mdl-menu .mdl-menu__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.drawer-header {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+
+.content {
+  max-width: 1080px;
+}
+
+.cards {
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+              -ms-grid-row-align: flex-start;
+          align-items: flex-start;
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
+}
+.cards .separator {
+  height: 32px;
+}
+.cards .mdl-card__title.mdl-card__title {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+}
+.cards ul {
+  padding: 0;
+}
+.cards h3 {
+  font-size: 2em;
+  text-align: center;
+  line-height: 2;
+  color: #eceff1;
+}
+.updates .mdl-card__title {
+  min-height: 200px;
+  background-image: url('images/dog.png');
+  background-position: 90% 100%;
+  background-repeat: no-repeat;
+}
+.cards .mdl-card__actions a {
+  color: #00BCD4;
+  text-decoration: none;
+}
+.options h3 {
+  margin: 0;
+}
+.options .mdl-checkbox__box-outline {
+  border-color: rgba(255, 255, 255, 0.89);
+}
+.options .actions{
+    float: right;
+}
+.options .actions i.material-icons{
+  font-size: 18px;
+}
+.options ul {
+  margin: 0;
+  list-style-type: none;
+}
+.options li {
+  margin: 10px 0;
+}
+.options .material-icons {
+  color: rgba(255, 255, 255, 0.89);
+}
+.options .mdl-card__actions {
+  height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/*Custom*/
+.mdl-card__actions i {
+  text-align: center;
+  font-size: 30px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+
+.actions i {
+  cursor: pointer;
+  outline: none;
+}
+
+.mdl-card__supporting-text{
+  width: 100%;
+}
+
+.ebuttons {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+input.editable-input.ng-pristine.ng-valid.ng-not-empty.ng-valid-required.ng-touched {
+    color: black !important;
+    width: 170%;
+}
+
+.tasktext {
+    color: #eceff1;
+}
+
+
+/*.editable-empty, .editable-empty:hover {
+    color: #DD1144 !important;
+}*/
+
+.btn {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 8px;
+}
+
+.btn-default {
+    color: whitesmoke;
+    background-color: transparent;
+}
+
+.mytag {
+    color: #673AB7;
+    font-size: 85%;
+    background-color: #EDE7F6;
+}
+
+.result {
+    color: white;
+    text-align: -webkit-center;
+    font-size: 13px;
+}
+
+.ebuttons .btn.btn-default {
+  background-color: #9575CD;
+  margin: 0 5px;
+  border-color: #EDE7F6;
+}
+
+.ebuttons .btn.btn-default:hover {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+ul.list-inline {
+    display: flex;
+    justify-content: center;
+}
